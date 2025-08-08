@@ -21,20 +21,20 @@
 #include "sde_hw_kcal_ctrl.h"
 
 static struct sde_hw_kcal kcal_lut_data = {
-	.enabled		= 1,
-	.min_value		= 1,
+	.enabled		= SDE_HW_KCAL_ENABLED,
+	.min_value		= SDE_HW_KCAL_MIN_VALUE,
 
 	.pcc = (typeof(kcal_lut_data.pcc)) {
-		.red		= 240,
-		.green		= 255,
-		.blue		= 252,
+		.red		= SDE_HW_KCAL_INIT_RED,
+		.green		= SDE_HW_KCAL_INIT_GREEN,
+		.blue		= SDE_HW_KCAL_INIT_BLUE,
 	},
 
 	.hsic = (typeof(kcal_lut_data.hsic)) {
-		.hue		= 0,
-		.saturation	= 280,
-		.value		= 255,
-		.contrast	= 270,
+		.hue		= SDE_HW_KCAL_INIT_HUE,
+		.saturation	= SDE_HW_KCAL_INIT_ADJ,
+		.value		= SDE_HW_KCAL_INIT_ADJ,
+		.contrast	= SDE_HW_KCAL_INIT_ADJ,
 	},
 };
 
