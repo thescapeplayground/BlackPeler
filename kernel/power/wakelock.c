@@ -161,7 +161,7 @@ static struct wakelock *wakelock_lookup_add(const char *name, size_t len, bool a
 	return wl;
 }
 
-/* Wakelock filter - save mode but allow DT2W, face unlock & media playback */
+/* Wakelock filter */
 static const char *blocked_wakelocks[] = {
 	"ufs_hba", "ufs_pm", "ufsclks", "ufs-event", "ufs-busmon",
 	"scsi_eh", "sdcardfs", "vold",
@@ -179,15 +179,18 @@ void wakelock_filter_sensor_event_end(void)   { sensor_event_active = false; }
 
 static bool should_block_wakelock(const char *name)
 {
-	/* Allow critical events when needed */
+	const char **wl;
+
 	if (sensor_event_active)
 		return false;
+
 	if (strstr(name, "dt2w") || strstr(name, "double_tap") ||
 	    strstr(name, "faceunlock") || strstr(name, "facerecog") ||
 	    strstr(name, "media") || strstr(name, "audio") ||
 	    strstr(name, "video"))
 		return false;
-	for (const char **wl = blocked_wakelocks; *wl; wl++) {
+
+	for (wl = blocked_wakelocks; *wl; wl++) {
 		if (strstr(name, *wl))
 			return true;
 	}
@@ -234,7 +237,6 @@ int pm_wake_lock(const char *buf)
 	if (!len)
 		return -EINVAL;
 
-	/* Apply filter when screen is off */
 	if (screen_is_off && should_block_wakelock(buf)) {
 		pr_info("WakelockFilter: blocked wakelock %.*s (screen_off=%d, sensor_event=%d)\n",
 			(int)len, buf, screen_is_off, sensor_event_active);
