@@ -195,10 +195,8 @@ bq25970-standalone@66 {
 	ti,bq2597x,bus-ocp-alarm-threshold = <3500>;
 	ti,bq2597x,bat-therm-threshold = <0x15>; /* 4.1% */
 	ti,bq2597x,bus-therm-threshold = <0x15>; /* 4.1% */
-	ti,bq2597x,die-therm-threshold = <145>;
+	ti,bq2597x,die-therm-threshold = <125>;
 	ti,bq2597x,ac-ovp-threshold = <14>;
-
-	/* Limit arus input dan charging ke 5A */
 	ti,bq2597x,input-current-limit = <5000000>;
 	ti,bq2597x,charging-current-limit = <5000000>;
     };
@@ -243,17 +241,19 @@ bq25970-standalone@66 {
 	};
 
 	aw8624_haptic@5A {
-		compatible = "awinic,aw8624_haptic";
-		reg = <0x5A>;
-		reset-gpio = <&tlmm 4 0>;
-		irq-gpio = <&pm6150l_gpios  10 0>;
-		vib_f0_pre = < 2050 >;
-		vib_f0_cali_percen = < 7 >;
-		vib_cont_drv_lev = < 106 >;
-		vib_cont_drv_lvl_ov = < 155 >;
-		vib_cont_td = < 0xF06C >;
-		vib_cont_zc_thr = < 0x08F8 >;
-		vib_cont_num_brk = < 3 >;
+	    compatible = "awinic,aw8624_haptic";
+	    reg = <0x5A>;
+	    reset-gpio = <&tlmm 4 0>;
+	    irq-gpio = <&pm6150l_gpios 10 0>;
+	    vib_mode = <1>;
+	    vib_lra_vib_type = <0>;
+	    vib_f0_pre = <2050>;
+	    vib_f0_cali_percen = <7>;
+       	vib_cont_drv_lev = <88>;
+	    vib_cont_drv_lvl_ov = <118>;
+	    vib_cont_td = <0xF06C>;
+	    vib_cont_zc_thr = <0x08F8>;
+	    vib_cont_num_brk = <3>;
 		vib_f0_coeff = < 260 >; /*Don't modify it*/
 		vib_duration_time = < 15 60 0 0 0 >;
 		vib_brake_ram_config = < 1 1 90 60 20 3 1 3 1 1 90 60 30 5 1 3 0 0 50 40 25 0 5 3 >;
