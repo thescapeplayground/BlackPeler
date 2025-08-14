@@ -1,37 +1,7 @@
-Tobrut Exotic Kernel
+Xiaomeme Community Team Notice:
 
-🔥 Tobrut Exotic adalah kernel eksperimental dan optimalisasi berbasis Vantom yang dirancang khusus untuk perangkat Redmi Note 10 Pro/Pro Max (sweet & sweetin). Kernel ini mengutamakan efisiensi daya, performa gaming, serta kestabilan sistem, tanpa mengorbankan fitur-fitur penting.
+``` After multiple reports, we are removing the TobrutExotic kernel from this channel. ROMs that include it will not be allowed to be posted.
 
-🔧 Fitur Unggulan:
+We have seen that it uses ChatGPT generated code that alters power and thermal behavior. Users have seen fast charging at about 47°C. This is unsafe and will damage hardware. If you installed it, we recommend changing it immediately.
 
-Base Kernel: Vantom (clean & stable)
-
-Step Charging: Multi-step berbasis suhu & persentase baterai, maksimal 33W (dengan arus 4.5A), memastikan keamanan dan umur baterai
-
-Dukungan Dual Charger: BQ25970 & LN8000, dikonfigurasi aman dengan proteksi termal aktif
-
-UFS Devfreq Optimization: Scaling efisien dengan governor sched, timeout & clk gating disesuaikan, konsumsi daya berkurang drastis
-
-PM & CPUFreq Full Support: Dengan schedutil aktif default untuk balancing performa dan efisiensi
-
-JEITA Thermal Profiling: Kontrol termal adaptif untuk mempertahankan charging yang aman
-
-Idle Friendly: SPM & RPM level tuning, runtime PM aktif, mendukung efisiensi saat tidak digunakan
-
-Compatibilitas MIUI & AOSP: Kernel fleksibel, bekerja baik di kedua ekosistem
-
-
-⚙️ Target Utama:
-
-Mencapai performa tinggi saat dibutuhkan
-
-Meminimalisir konsumsi daya idle & background
-
-Tetap menjaga batas aman suhu dan arus
-
-
-📦 Device Support:
-
-sweetin (Redmi Note 10 Pro India)
-
-sweet (Redmi Note 10 Pro Global)
+The source is public for anyone to review. For future channel releases, kernel sources must be public and provided on request. ```
